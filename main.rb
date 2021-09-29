@@ -16,4 +16,12 @@ class App
       puts 'No books in library'
     end
   end
+
+  def all_people
+    if @people.length.positive?
+      @people.each { |person| puts "Name: #{person.name}, Age: #{person.age}" }
+    else
+      puts 'No people in library'
+    end
+  end
 end
