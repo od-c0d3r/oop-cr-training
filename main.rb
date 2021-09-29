@@ -1,7 +1,5 @@
 # rubocop:disable Metrics/MethodLength
 # rubocop:disable Metrics/CyclomaticComplexity
-# rubocop:disable Metrics/PerceivedComplexity
-# rubocop:disable Metrics/AbcSize
 
 require_relative './teacher'
 require_relative './student'
@@ -82,7 +80,9 @@ class App
 
     puts "\nSelect a person from the following list by number (not id)"
 
-    @people.each_with_index { |person, index| puts "#{index}) [#{person.class}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}" }
+    @people.each_with_index { |person, index|
+      puts "#{index}) [#{person.class}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
+    }
     person_index = gets.chomp.to_i
 
     print "\nDate: "
