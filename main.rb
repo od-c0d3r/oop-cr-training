@@ -32,29 +32,35 @@ class App
   end
 
   def create_person
-    print 'Do you want to create a student (1) or a teacher (2)? [Input the number]: '
-    person_type = gets.chomp
-      if person_type != '1' && person_type != '2'
-        puts 'Invalid Option'
-        return
-      end
+    puts 'Do you want to create a student (1) or a teacher (2)?'
+    print 'Select (1) or (2)'
+    print ' '
+    selection = gets.chomp
+
+    case selection
+    when '1'
       print 'Age: '
-      age = gets.chomp.to_i
+      age = gets.chomp
       print 'Name: '
       name = gets.chomp
-      person =
-        if person_type == '1'
-          print 'Has parent permission? [Y/N]: '
-          parent_permission = gets.chomp
-          parent_permission = parent_permission.downcase == 'y'
-          Student.new(age, name, parent_permission)
-        elsif person_type == '2'
-          print 'Specialization: '
-          specialization = gets.chomp
-          Teacher.new(age, specialization, name)
-        end
-      @people << person
-      puts 'Person created successfully!'
+      print 'Has parent permission? [Y/N]: '
+      permission = gets.chomp
+      permission = permission.downcase == 'y'
+      @people << Student.new(age, name, permission)
+      puts 'student created successfully'
+    when '2'
+      print 'Age: '
+      age = gets.chomp
+      print 'Name: '
+      name = gets.chomp
+      print 'Specialization: '
+      specialization = gets.chomp
+      @people << Teacher.new(age, specialization, name)
+      puts 'Teacher created successfully'
+    else
+      puts 'invalid selection'
+      nil
+    end
   end
 
   def create_book
@@ -96,3 +102,43 @@ class App
     rentals.each { |rental| puts "Date: #{rental.date}, Book \"#{rental.book.title}\" by #{rental.book.author}" }
   end
 end
+
+def main
+  app = App.new
+  selection = nil
+
+  while selection != '7'
+    puts 'Please choose an option by enterin a number:'
+    puts '1 - List all books'
+    puts '2 - List all people'
+    puts '3 - Create a person'
+    puts '4 - Create a book'
+    puts '5 - Create a rental'
+    puts '6 - List all rentals for a given person id'
+    puts '7 - Exit'
+    print 'Add your selection'
+    print ' '
+    selection = gets.chomp
+
+    case selection
+    when '1'
+      app.all_books
+    when '2'
+      app.all_people
+    when '3'
+      app.create_person
+    when '4'
+      app.create_book
+    when '5'
+      app.create_rental
+    when '6'
+      app.list_rentals
+    when '7'
+      puts 'Thank you for using this app!'
+    end
+    puts "\n"
+  end
+end
+main
+# rubocop: enable Metrics/MethodLength
+# rubocop: enable Metrics/CyclomaticComplexity
