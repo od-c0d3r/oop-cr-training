@@ -47,7 +47,8 @@ e.g.
 - Linkedin: [Omar Rashad](https://www.linkedin.com/)
 
 👤 **CY Kalu**
-​- Github: [@CY Kalu](https://github.com/)
+
+- Github: [@CY Kalu](https://github.com/)
 - Twitter: [@CY Kalu](https://twitter.com/)
 - Linkedin: [CY Kalu](https://www.linkedin.com/)
 
