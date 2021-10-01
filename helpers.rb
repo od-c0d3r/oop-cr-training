@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 def display_options
   puts 'Please choose an option by entering the corresponding number:'
   puts '1 - List all books'

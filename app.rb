@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# rubocop:disable Metrics/MethodLength
 
 require_relative './teacher'
 require_relative './student'
@@ -101,3 +101,4 @@ class App
     rentals.each { |rental| puts "Date: #{rental.date}, Book \"#{rental.book.title}\" by #{rental.book.author}" }
   end
 end
+# rubocop:enable Metrics/MethodLength
